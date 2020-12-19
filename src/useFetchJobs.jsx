@@ -34,11 +34,7 @@ export default function useFetchJobs(params, page) {
     }).catch(error => {
       dispatch({ type: ACTIONS.ERROR, payload: { error: error } })
     })
-  }, [])
+  }, [params, page])
 
-  return {
-    jobs: [],
-    loading: false,
-    error: false
-  }
+  return state;
 }
