@@ -1,3 +1,3 @@
-export default function useFetchJobs() {
+export default function useFetchJobs(params, page) {
 
 }
