@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 
 const ACTIONS = {
   MAKE_REQUEST: 'make-request',
