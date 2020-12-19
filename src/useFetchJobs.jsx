@@ -22,6 +22,10 @@ function reducer(state, action) {
 export default function useFetchJobs(params, page) {
   const [state, dispatch] = useReducer(reducer, { jobs: [], loading: true, error: false})
 
+  useEffect(() => {
+    dispatch({ type: ACTIONS.MAKE_REQUEST })
+  }, [])
+
   return {
     jobs: [],
     loading: false,
