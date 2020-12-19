@@ -1,7 +1,8 @@
 import React from 'react';
 import useFetchJobs from './useFetchJobs';
 function App() {
-  return <h1>Hello World</h1>
+  const { jobs, loading, error} = useFetchJobs();
+
 }
 
 export default App;
