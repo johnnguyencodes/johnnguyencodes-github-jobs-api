@@ -11,6 +11,10 @@ export default function App() {
   const { jobs, loading, error } = useFetchJobs(params, page);
   const [view, setView] = useState('home');
 
+  const handleResetPage = () => {
+    setView('home');
+  }
+
   function handleParamChange(event) {
     const param = event.target.name;
     const value = event.target.value;
