@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 
 export default function Job({ job }) {
   return (
-    <Card>
+    <Card className="job-card col-3 offset-1 m-2">
       <Card.Body>
         <div className="d-flex justify-content-between">
           <div>
@@ -18,12 +18,12 @@ export default function Job({ job }) {
               Posted {moment(new Date(job.created_at)).fromNow()}
             </Card.Subtitle>
             <Badge variant="secondary" className="mr-2">{job.type}</Badge>
-            <Badge variant="secondary">{job.location}</Badge>
-            <div style={{ wordBreak: 'break-all' }}>
+            <Badge variant="secondary" style={{ wordBreak: 'break-all' }}>{job.location}</Badge>
+            {/* <div style={{ wordBreak: 'break-all' }}>
               <ReactMarkdown source={job.how_to_apply} />
-            </div>
+            </div> */}
           </div>
-          <img className="d-none d-md-block" height="50" src={job.company_logo} alt={job.company} />
+          <img className="d-none d-md-block" height="50" width="50" src={job.company_logo} alt={job.company} />
         </div>
       </Card.Body>
     </Card>
