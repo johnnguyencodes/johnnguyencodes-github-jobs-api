@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Badge } from 'react-bootstrap';
 
 export default function Job({ job }) {
   return (
@@ -15,6 +15,8 @@ export default function Job({ job }) {
             <Card.Subtitle className="text-muted mb-2">
               {new Date(job.created_at).toLocaleDateString()}
             </Card.Subtitle>
+            <Badge variant="secondary" className="mr-2">{job.type}</Badge>
+            <Badge variant="secondary">{job.location}</Badge>
           </div>
         </div>
       </Card.Body>
