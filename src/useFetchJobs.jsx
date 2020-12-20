@@ -10,7 +10,7 @@ const ACTIONS = {
 
 const BASE_URL = '/positions.json';
 
-function reducer(state, action) {
+const reducer = (state, action) => {
   switch(action.type) {
     case ACTIONS.MAKE_REQUEST:
       return { loading: true, jobs: [] }

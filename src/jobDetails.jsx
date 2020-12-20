@@ -12,8 +12,7 @@ export default function JobDetails({ details, onResetView }) {
     company,
     company_url,
     company_logo,
-    how_to_apply,
-    id
+    how_to_apply
   } = details;
 
   return (

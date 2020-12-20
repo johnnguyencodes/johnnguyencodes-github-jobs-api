@@ -27,7 +27,7 @@ export default function App() {
     jobDetails = jobs.find((job) => job.id === jobId);
   }
 
-  function handleParamChange(event) {
+  const handleParamChange = (event) => {
     const param = event.target.name;
     const value = event.target.value;
     setPage(1);
