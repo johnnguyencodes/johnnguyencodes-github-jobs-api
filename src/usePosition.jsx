@@ -12,7 +12,9 @@ export default function usePosition() {
     }
 
     watcher = geo.watchPosition(onChange, onError);
-  })
+
+    return () => geo.clearWatch(watcher);
+  }, []);
 
   return {...position, error};
 }
