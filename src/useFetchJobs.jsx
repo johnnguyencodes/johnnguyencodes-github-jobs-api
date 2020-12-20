@@ -8,7 +8,7 @@ const ACTIONS = {
   ERROR: 'error'
 }
 
-const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json';
+const BASE_URL = '/positions.json';
 
 function reducer(state, action) {
   switch(action.type) {
@@ -30,6 +30,10 @@ export default function useFetchJobs(params, page) {
     const cancelToken = axios.CancelToken.source();
     dispatch({ type: ACTIONS.MAKE_REQUEST })
     axios.get(BASE_URL, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "X-Requested-With"
+      },
       cancelToken: cancelToken.token,
       params: { markdown: true, page: page, ...params }
     }).then (res => {
