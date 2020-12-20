@@ -1,5 +1,6 @@
 import { useReducer, useEffect } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 const ACTIONS = {
   MAKE_REQUEST: 'make-request',
@@ -32,7 +33,11 @@ export default function useFetchJobs(params, page) {
       cancelToken: cancelToken.token,
       params: { markdown: true, page: page, ...params }
     }).then (res => {
-      dispatch({ type: ACTIONS.GET_DATA, payload: { jobs: res.data } })
+      const sortedJobs = res.data.sort(
+        (a, b) =>
+        moment(new Date(b.created_at)) - moment(new Date(a.created_at))
+      );
+      dispatch({ type: ACTIONS.GET_DATA, payload: { jobs: sortedJobs } })
     }).catch(error => {
       if (axios.isCancel(error)) return
       dispatch({ type: ACTIONS.ERROR, payload: { error: error } })
