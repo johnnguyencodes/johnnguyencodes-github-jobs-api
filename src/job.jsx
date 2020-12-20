@@ -1,7 +1,6 @@
 import React from 'react';
-import { Card, Badge } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import moment from 'moment';
-// import ReactMarkdown from 'react-markdown';
 
 export default function Job({ job }) {
   return (
