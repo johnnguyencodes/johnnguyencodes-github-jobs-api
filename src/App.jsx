@@ -8,6 +8,10 @@ function App() {
   const [page, setPage] = useState(1);
   const { jobs, loading, error } = useFetchJobs(params, page);
 
+  function handleParamChange(event) {
+
+  }
+
   return (
     <Container>
       {loading && <h1>Loading...</h1>}
