@@ -10,6 +10,8 @@ export default function usePosition() {
       setError ('Geolocation is not supported');
       return;
     }
+
+    watcher = geo.watchPosition(onChange, onError);
   })
 
   return {...position, error};
