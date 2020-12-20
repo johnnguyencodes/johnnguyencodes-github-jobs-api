@@ -2,12 +2,13 @@
   flex-basis: calc(33% - 30px);
 }
 
-.job-location {
+.job-card-location {
   font-size: 12px;
 }
 
-.job-body {
-  height: 175px;
+.job-card-body {
+  min-height: 175px;
+  max-height: 175px;
   overflow-y: auto;
 }
 
