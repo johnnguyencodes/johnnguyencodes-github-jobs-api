@@ -9,6 +9,7 @@ export default function App() {
   const [params, setParams] = useState({});
   const [page, setPage] = useState(1);
   const { jobs, loading, error } = useFetchJobs(params, page);
+  const [view, setView] = useState('home');
 
   function handleParamChange(event) {
     const param = event.target.name;
