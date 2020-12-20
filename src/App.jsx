@@ -13,17 +13,17 @@ export default function App() {
   const [view, setView] = useState('home');
   const [jobId, setJobId] = useState(-1);
 
-  const handleResetPage = () => {
+  const handleResetView = () => {
     setView('home');
   }
 
-    const handleItemClick = (jobId) => {
-      setPage('details');
-      setJobId(jobId);
+  const handleItemClick = (jobId) => {
+    setView('details');
+    setJobId(jobId);
   }
 
   let jobDetails = {};
-  if (page === 'details') {
+  if (view === 'details') {
     jobDetails = jobs.find((job) => job.id === jobId);
   }
 
@@ -39,7 +39,7 @@ export default function App() {
   return (
     <Container className="my-4">
       <h1 className="mb-4">devjobs</h1>
-      <div className={`${view === 'details' && 'd-none'}`}>
+      <div className={`${view === 'details' && 'hide'}`}>
         <SearchForm
           params={params}
           onParamChange={handleParamChange}
@@ -51,9 +51,9 @@ export default function App() {
             return <Job key={job.id} job={job} onItemClick={handleItemClick} />
           })}
         </div>
-        <div className={`${view === 'home' && 'd-none'}`}>
-          <JobDetails details={jobDetails} onResetPage={handleResetPage} />
-        </div>
+      </div>
+      <div className={`${view === 'home' && 'hide'}`}>
+        <JobDetails details={jobDetails} onResetView={handleResetView} />
       </div>
     </Container>
   )

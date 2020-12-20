@@ -12,6 +12,14 @@
   overflow-y: auto;
 }
 
+.job-card:hover {
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: grey #f8f9fa;

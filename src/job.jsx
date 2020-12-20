@@ -2,9 +2,9 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import moment from 'moment';
 
-export default function Job({ job }) {
+export default function Job({ job, onItemClick }) {
   return (
-    <Card className="job-card d-flex justify-content-center m-3 h-100">
+    <Card className="job-card d-flex justify-content-center m-3 h-100" onClick={() => onItemClick(job.id)}>
       <Card.Header className="job-card-header">
         <img className="d-none d-md-block" height="50" width="50" src={job.company_logo} alt={job.company} />
       </Card.Header>
