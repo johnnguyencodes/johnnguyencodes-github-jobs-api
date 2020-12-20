@@ -22,9 +22,10 @@ function App() {
   return (
     <Container className="my-4">
       <h1 className="mb-4">devjobs</h1>
-      <SearchForm>
-
-      </SearchForm>
+      <SearchForm
+        params={params}
+        onParamChange={handleParamChange}
+      />
       {loading && <h1>Loading...</h1>}
       {error && <h1>Error. Try Refreshing.</h1>}
       <div className="jobs-container col-12 d-flex flex-wrap justify-content-center">
