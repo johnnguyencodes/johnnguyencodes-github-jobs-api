@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Badge } from 'react-bootstrap';
+import moment from 'moment';
 
 export default function Job({ job }) {
   return (
@@ -13,7 +14,7 @@ export default function Job({ job }) {
               </span>
             </Card.Title>
             <Card.Subtitle className="text-muted mb-2">
-              {new Date(job.created_at).toLocaleDateString()}
+              Posted {moment(new Date(job.created_at)).fromNow()}
             </Card.Subtitle>
             <Badge variant="secondary" className="mr-2">{job.type}</Badge>
             <Badge variant="secondary">{job.location}</Badge>
