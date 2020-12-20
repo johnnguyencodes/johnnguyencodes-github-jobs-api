@@ -5,7 +5,7 @@ import Job from './job';
 import SearchForm from "./searchForm";
 
 
-function App() {
+export default function App() {
   const [params, setParams] = useState({});
   const [page, setPage] = useState(1);
   const { jobs, loading, error } = useFetchJobs(params, page);
@@ -36,5 +36,3 @@ function App() {
     </Container>
   )
 }
-
-export default App;
