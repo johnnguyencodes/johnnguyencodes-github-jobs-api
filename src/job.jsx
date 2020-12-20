@@ -12,6 +12,9 @@ export default function Job({ job }) {
                 {job.company}
               </span>
             </Card.Title>
+            <Card.Subtitle className="text-muted mb-2">
+              {new Date(job.created_at).toLocaleDateString()}
+            </Card.Subtitle>
           </div>
         </div>
       </Card.Body>
