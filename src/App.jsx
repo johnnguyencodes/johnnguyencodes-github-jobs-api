@@ -9,7 +9,6 @@ import JobDetails from './jobDetails';
 export default function App() {
   const [params, setParams] = useState({});
   const [page, setPage] = useState(1);
-  const [selection, setSelection] = useState(null);
   const { jobs, loading, error } = useFetchJobs(params, page);
   const [view, setView] = useState('home');
   const [jobId, setJobId] = useState(-1);
