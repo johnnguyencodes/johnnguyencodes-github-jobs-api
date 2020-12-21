@@ -70,8 +70,8 @@ export default function App() {
             })}
           </div>
           {jobs.length > 0 &&  (
-            <div className="load-more d-flex justify-content-center" onClick={loading ? null : handleLoadMoreJobs}>
-              <Button disabled={loading} className={`${loading ? 'disabled' : 'text-white font-weight-bold mb-4'}`}>
+            <div className="load-more d-flex justify-content-center">
+              <Button onClick={loading ? null : handleLoadMoreJobs} disabled={loading} className={`${loading ? 'disabled' : 'text-white font-weight-bold mb-4 btn-outline-none'}`}>
                 Load More Jobs
               </Button>
             </div>

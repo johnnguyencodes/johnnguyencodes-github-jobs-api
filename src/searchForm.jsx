@@ -11,7 +11,7 @@ export default function SearchForm({ params, onParamChange }) {
               <div>
                 <i class="fas fa-search purple fa-2x"></i>
               </div>
-              <Form.Control className="border-top-0 border-bottom-0 border-left-0 border-right pl-5" onChange={onParamChange} value={params.description} placeholder="Filter by title, companies, expertise..." name="description" type="text" />
+              <Form.Control className="border-top-0 border-bottom-0 border-left-0 border-right pl-5 input" onChange={onParamChange} value={params.description} placeholder="Filter by title, companies, expertise..." name="description" type="text" />
             </div>
           </Form.Group>
           <Form.Group as={Col} className="m-0 p-2">
@@ -19,7 +19,7 @@ export default function SearchForm({ params, onParamChange }) {
               <div>
                 <i class="fas fa-map-marker-alt purple fa-2x"></i>
               </div>
-            <Form.Control className="border-top-0 border-bottom-0 border-left-0 border-right pl-5" onChange={onParamChange} value={params.location} placeholder="Filter by location..." name="location" type="text" />
+            <Form.Control className="border-top-0 border-bottom-0 border-left-0 border-right pl-5 input" onChange={onParamChange} value={params.location} placeholder="Filter by location..." name="location" type="text" />
           </div>
           </Form.Group>
           <Form.Group as={Col} xs="auto" className="my-0 mr-0 ml-2 p-2">
