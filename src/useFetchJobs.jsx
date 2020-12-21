@@ -15,7 +15,7 @@ let totalJobs = [];
 const reducer = (state, action) => {
   switch(action.type) {
     case ACTIONS.MAKE_REQUEST:
-      return { loading: true, jobs: [] }
+      return { loading: false, jobs: [] }
     case ACTIONS.GET_DATA:
       return { ...state, loading: false, jobs: action.payload.jobs }
     case ACTIONS.ERROR:
@@ -26,7 +26,7 @@ const reducer = (state, action) => {
 }
 
 export default function useFetchJobs(params, page) {
-  const [state, dispatch] = useReducer(reducer, { jobs: [], loading: true, error: false})
+  const [state, dispatch] = useReducer(reducer, { jobs: [], loading: false, error: false})
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {

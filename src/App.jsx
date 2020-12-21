@@ -26,6 +26,7 @@ export default function App() {
 
   const handleLoadMoreJobs = () => {
     setPage(page + 1);
+    console.log(loading);
   }
 
   let jobDetails = {};
