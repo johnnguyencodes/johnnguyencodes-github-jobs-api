@@ -67,14 +67,14 @@ export default function App() {
           {jobs.map(job => {
             return <Job key={job.id} job={job} onItemClick={handleItemClick} />
           })}
-          {jobs.length > 0 &&  (
-            <div className="load-more" onClick={loading ? null : handleLoadMoreJobs}>
-              <button disabled={loading} className={`${loading ? 'disabled' : ''}`}>
-                Load More Jobs
-              </button>
-            </div>
-          )}
         </div>
+        {jobs.length > 0 &&  (
+          <div className="load-more d-flex justify-content-center" onClick={loading ? null : handleLoadMoreJobs}>
+            <button disabled={loading} className={`${loading ? 'disabled' : ''}`}>
+              Load More Jobs
+            </button>
+          </div>
+        )}
       </div>
       <div className={`${view === 'home' && 'hide'}`}>
         <JobDetails details={jobDetails} onResetView={handleResetView} />
