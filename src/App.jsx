@@ -25,6 +25,10 @@ export default function App() {
     window.scrollTo(0, 0);
   }
 
+  const handleLoadMore = () => {
+    setPageNumber(pageNumber + 1);
+  }
+
   let jobDetails = {};
   if (view === 'details') {
     jobDetails = jobs.find((job) => job.id === jobId);
