@@ -20,6 +20,11 @@
   display: none;
 }
 
+.header {
+  background-image: url(../src/images/header-bg.jpg);
+  color: yellow;
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: grey #f8f9fa;
