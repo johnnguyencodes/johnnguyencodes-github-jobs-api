@@ -5,6 +5,7 @@ import Job from './job';
 import SearchForm from './searchForm';
 import JobDetails from './jobDetails';
 import Header from "./header";
+import Footer from './footer';
 
 export default function App() {
   const [params, setParams] = useState({});
@@ -81,6 +82,9 @@ export default function App() {
           <JobDetails details={jobDetails} onResetView={handleResetView} />
         </div>
       </div>
+        <div className={`${view === 'home' && 'hide'}`}>
+          <Footer details={jobDetails} />
+        </div>
     </Container>
   )
 }

@@ -25,6 +25,7 @@ export default function JobDetails({ details, onResetView }) {
   }
 
   return (
+    <>
     <div className="job-details-container col-10 offset-1">
         <header className="m-0 p-0 bg-white row col-12">
           {company_logo
@@ -64,7 +65,7 @@ export default function JobDetails({ details, onResetView }) {
                 </Card.Subtitle>
               </div>
               <div className="col-4 d-flex justify-content-end align-items-center">
-                <Button className="font-weight-bold button-job-details-card-apply">Apply Now</Button>
+                <Button href={company_url} className="font-weight-bold button-job-details-card-apply">Apply Now</Button>
               </div>
             </Card.Header>
             <Card.Body className="m-0 px-5 py-0">
@@ -79,6 +80,7 @@ export default function JobDetails({ details, onResetView }) {
               <ReactMarkdown className="mt-4 text-white" source={how_to_apply} />
             </Card.Body>
           </Card>
-    </div>
+      </div>
+    </>
   );
 };

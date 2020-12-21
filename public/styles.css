@@ -211,6 +211,14 @@ a:hover {
   color: #5865E0;
 }
 
+/* footer styling */
+
+.footer {
+  width: 100%;
+  top: 120px;
+  border-radius: 10px;
+}
+
 /* scrollbar styling */
 
 * {
