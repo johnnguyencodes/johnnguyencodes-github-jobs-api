@@ -4,6 +4,10 @@
   font-family: "Montserrat", Arial, sans-serif;
 }
 
+#root {
+  background-color: #f5f6f8;
+}
+
 .container {
   position: relative;
 }
@@ -17,6 +21,17 @@
 
 .purple {
   color: #5865E0;
+}
+
+.badge {
+  background-color: #5865E0;
+  width: 50px;
+  height: 50px;
+}
+
+.company-logo {
+  top: 10px;
+  position: absolute;
 }
 
 i {
@@ -36,6 +51,11 @@ form {
 
 .job-card {
   flex-basis: calc(33% - 30px);
+  border-radius: 10px!important;
+}
+
+.job-card-header {
+  height: 32px;
 }
 
 .job-card-location {
@@ -43,8 +63,8 @@ form {
 }
 
 .job-card-body {
-  min-height: 175px;
-  max-height: 175px;
+  min-height: 200px;
+  max-height: 200px;
   overflow-y: auto;
 }
 
@@ -71,7 +91,7 @@ form {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: grey;
+  background-color: #5865E0;
   border-radius: 20px;
   border: 3px solid #f8f9fa;
 }
