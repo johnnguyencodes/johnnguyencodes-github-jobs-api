@@ -37,6 +37,23 @@
 
 .btn-primary {
   background-color: #5865E0!important;
+  outline: none;
+    -webkit-box-shadow: 0 0 5px rgba(33,33,33,.2)!important;
+          box-shadow: 0 0 5px rgba(33,33,33,.2)!important;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-primary:hover {
+    -webkit-transform: translateY(-.5rem);
+      -ms-transform: translateY(-.5rem);
+          transform: translateY(-.5rem);
+  -webkit-box-shadow: 0 0 15px rgba(33,33,33,.2)!important;
+          box-shadow: 0 0 15px rgba(33,33,33,.2)!important;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
 }
 
 .company-logo {
@@ -53,6 +70,22 @@ form {
   bottom: 30px;
   background-color: white;
   border-radius: 5px;
+  -webkit-box-shadow: 0 0 5px rgba(33,33,33,.2);
+  box-shadow: 0 0 5px rgba(33,33,33,.2);
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+form:hover {
+      -webkit-transform: translateY(-.25rem);
+      -ms-transform: translateY(-.25rem);
+          transform: translateY(-.25rem);
+  -webkit-box-shadow: 0 0 15px rgba(33,33,33,.2);
+          box-shadow: 0 0 15px rgba(33,33,33,.2);
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
 }
 
 .form-check-label {
@@ -62,6 +95,22 @@ form {
 .job-card {
   flex-basis: calc(33% - 30px);
   border-radius: 10px!important;
+    -webkit-box-shadow: 0 0 5px rgba(33,33,33,.2);
+          box-shadow: 0 0 5px rgba(33,33,33,.2);
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.job-card:hover {
+    -webkit-transform: translateY(-.5rem);
+      -ms-transform: translateY(-.5rem);
+          transform: translateY(-.5rem);
+  -webkit-box-shadow: 0 0 15px rgba(33,33,33,.2);
+          box-shadow: 0 0 15px rgba(33,33,33,.2);
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
 }
 
 .job-card-header {
