@@ -28,11 +28,12 @@ export default function useFetchJobs(params, page) {
 
   useEffect(() => {
 
-    if ('geolocation' in navigator) {
-      console.log("geolocation available");
-    } else {
-      console.log("geolocation not available");
-    }
+    navigator.geolocation.getCurrentPosition((position) => {
+      params.lat = position.coords.latitude;
+      params.long = position.coords.longitude;
+    }, (error) => {
+      console.error(`Error Code = ${error.code} - ${error.message}.`);
+    })
 
     const cancelToken = axios.CancelToken.source();
     dispatch({ type: ACTIONS.MAKE_REQUEST })
