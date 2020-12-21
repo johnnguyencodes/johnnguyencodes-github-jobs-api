@@ -29,7 +29,6 @@
     ]
   },
   "proxy": "https://jobs.github.com",
-  "homepage": "https://johnnguyencodes-github-jobs-api.netlify.app/build/",
   "browserslist": {
     "production": [
       ">0.2%",
