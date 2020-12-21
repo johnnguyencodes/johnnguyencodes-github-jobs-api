@@ -2,8 +2,6 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 export default function JobDetails({ details, onResetView }) {
-  console.log(details);
-
   const {
     type,
     title,
@@ -12,8 +10,7 @@ export default function JobDetails({ details, onResetView }) {
     company,
     company_url,
     company_logo,
-    how_to_apply,
-    id
+    how_to_apply
   } = details;
 
   return (

@@ -27,9 +27,19 @@ export default function App() {
     jobDetails = jobs.find((job) => job.id === jobId);
   }
 
-  function handleParamChange(event) {
+  const handleParamChange = (event) => {
     const param = event.target.name;
     const value = event.target.value;
+    if (document.getElementById("geolocation").checked === true) {
+
+    }
+    if (document.getElementById("geolocation").checked === false) {
+      params.lat = '';
+      params.long = '';
+    }
+    if (params.lat) {
+      params.location = '';
+    }
     setPage(1);
     setParams(prevParams => {
       return { ...prevParams, [param]: value }
