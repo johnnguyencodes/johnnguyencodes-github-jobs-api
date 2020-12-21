@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 export default function JobDetails({ details, onResetView }) {
+
   const {
     type,
     title,

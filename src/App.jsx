@@ -20,6 +20,7 @@ export default function App() {
   const handleItemClick = (jobId) => {
     setView('details');
     setJobId(jobId);
+    window.scrollTo(0, 0);
   }
 
   let jobDetails = {};
