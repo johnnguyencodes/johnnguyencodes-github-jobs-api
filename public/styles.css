@@ -29,6 +29,10 @@
   height: 50px;
 }
 
+.btn-primary {
+  background-color: #5865E0!important;
+}
+
 .company-logo {
   top: -24px;
   position: absolute;
@@ -63,8 +67,8 @@ form {
 }
 
 .job-card-body {
-  min-height: 200px;
-  max-height: 200px;
+  min-height: 250px;
+  max-height: 250px;
   overflow-y: auto;
 }
 

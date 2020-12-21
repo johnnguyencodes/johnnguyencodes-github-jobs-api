@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useFetchJobs from './useFetchJobs';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import Job from './job';
 import SearchForm from './searchForm';
 import JobDetails from './jobDetails';
@@ -71,9 +71,9 @@ export default function App() {
           </div>
           {jobs.length > 0 &&  (
             <div className="load-more d-flex justify-content-center" onClick={loading ? null : handleLoadMoreJobs}>
-              <button disabled={loading} className={`${loading ? 'disabled' : ''}`}>
+              <Button disabled={loading} className={`${loading ? 'disabled' : 'text-white font-weight-bold mb-4'}`}>
                 Load More Jobs
-              </button>
+              </Button>
             </div>
           )}
         </div>

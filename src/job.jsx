@@ -14,10 +14,10 @@ export default function Job({ job, onItemClick }) {
             {moment(new Date(job.created_at)).fromNow()} &#8226; {job.type}
           </Card.Subtitle>
           <div>
-            <Card.Title className="job-card-title font-weight-bold mt-3 mb-2">
+            <Card.Title className="job-card-title font-weight-bold mt-4 mb-3">
               {job.title}
             </Card.Title>
-            <Card.Subtitle className="job-card-company mt-3">
+            <Card.Subtitle className="job-card-company mt-4">
               <span className="text-muted font-weight-light font-weight-bold">
                 {job.company}
               </span>
