@@ -3,7 +3,7 @@ import React from 'react';
 export default function Header() {
   return (
   <header className="header">
-    <div className="title">devjobs</div>
+    <h1 className="title font-weight-bold text-white ml-5 pt-4">devjobs</h1>
   </header>
   )
 }
