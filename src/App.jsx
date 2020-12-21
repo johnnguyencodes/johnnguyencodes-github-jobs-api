@@ -9,9 +9,11 @@ import JobDetails from './jobDetails';
 export default function App() {
   const [params, setParams] = useState({});
   const [page, setPage] = useState(1);
+  const [selection, setSelection] = useState(null);
   const { jobs, loading, error } = useFetchJobs(params, page);
   const [view, setView] = useState('home');
   const [jobId, setJobId] = useState(-1);
+
 
   const handleResetView = () => {
     setView('home');
@@ -20,6 +22,11 @@ export default function App() {
   const handleItemClick = (jobId) => {
     setView('details');
     setJobId(jobId);
+    window.scrollTo(0, 0);
+  }
+
+  const handleLoadMoreJobs = () => {
+    setPage(page + 1);
   }
 
   let jobDetails = {};
@@ -61,6 +68,13 @@ export default function App() {
             return <Job key={job.id} job={job} onItemClick={handleItemClick} />
           })}
         </div>
+        {jobs.length > 0 &&  (
+          <div className="load-more d-flex justify-content-center" onClick={loading ? null : handleLoadMoreJobs}>
+            <button disabled={loading} className={`${loading ? 'disabled' : ''}`}>
+              Load More Jobs
+            </button>
+          </div>
+        )}
       </div>
       <div className={`${view === 'home' && 'hide'}`}>
         <JobDetails details={jobDetails} onResetView={handleResetView} />

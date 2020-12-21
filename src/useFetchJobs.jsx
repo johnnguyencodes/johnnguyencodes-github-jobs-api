@@ -5,6 +5,7 @@ import moment from 'moment';
 const ACTIONS = {
   MAKE_REQUEST: 'make-request',
   GET_DATA: 'get-data',
+  // ADD_DATA: 'add-data',
   ERROR: 'error'
 }
 
@@ -16,6 +17,8 @@ const reducer = (state, action) => {
       return { loading: true, jobs: [] }
     case ACTIONS.GET_DATA:
       return { ...state, loading: false, jobs: action.payload.jobs }
+    // case ACTIONS.ADD_DATA:
+    //   return { ...state, loading: false, jobs:  ...action.payload.jobs}
     case ACTIONS.ERROR:
       return { ...state, loading: false, error: action.payload.error, jobs: [] }
     default:
@@ -48,6 +51,7 @@ export default function useFetchJobs(params, page) {
         moment(new Date(b.created_at)) - moment(new Date(a.created_at))
       );
       dispatch({ type: ACTIONS.GET_DATA, payload: { jobs: sortedJobs } })
+      // dispatch({ type: ACTIONS.ADD_DATA, payload: { }})
     }).catch(error => {
       if (axios.isCancel(error)) return
       dispatch({ type: ACTIONS.ERROR, payload: { error: error } })
