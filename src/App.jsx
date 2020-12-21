@@ -55,7 +55,7 @@ export default function App() {
 
   return (
     <Container className="col-12 m-0 p-0">
-      <Header />
+      <Header onResetView={handleResetView} />
       <div className="main-content col-10 offset-1">
         <div className={`${view === 'details' && 'hide'}`}>
           <SearchForm

@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Header() {
+export default function Header({onResetView}) {
   return (
   <header className="header">
-    <h1 className="title font-weight-bold text-white ml-5 pt-4">devjobs</h1>
+    <a className="app-logo" href="/#" onClick={onResetView}><h1 className="font-weight-bold text-white ml-5 pt-4">devjobs</h1></a>>
   </header>
   )
 }

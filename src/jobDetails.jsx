@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
+import moment from 'moment';
 
 export default function JobDetails({ details, onResetView }) {
 
@@ -12,7 +13,8 @@ export default function JobDetails({ details, onResetView }) {
     company,
     company_url,
     company_logo,
-    how_to_apply
+    how_to_apply,
+    created_at
   } = details;
 
 
@@ -24,12 +26,7 @@ export default function JobDetails({ details, onResetView }) {
 
   return (
     <div className="job-details-container col-10 offset-1">
-      <div className="back-link">
-        <a href="/#" onClick={onResetView}>
-          &lt;&lt; Back to results
-          </a>
-        </div>
-        <header className="details-header m-0 p-0 bg-white row">
+        <header className="m-0 p-0 bg-white row col-12">
           {company_logo
             ? <img className="d-none d-md-block details-company-logo"
               height="150" width="150" src={company_logo} alt={company} />
@@ -53,6 +50,29 @@ export default function JobDetails({ details, onResetView }) {
             </div>
           </div>
         </header>
+        <Card className="job-details-card d-flex justify-content-center border-0 pt-3">
+            <Card.Header className="job-details-card-header bg-white d-flex justify-content-between align-items-between border-0 m-0 p-5">
+              <div className="col-8">
+                <Card.Subtitle className="job-details-date text-muted font-weight-bold">
+                   {moment(new Date(created_at)).fromNow()} &#8226; {type}
+                </Card.Subtitle>
+                <Card.Title className="job-details-card-title">
+                  <h1 className="font-weight-bold">{title}</h1>
+                </Card.Title>
+                <Card.Subtitle className="job-details-card-location font-weight-bold purple">
+                  {location}
+                </Card.Subtitle>
+              </div>
+              <div className="col-4 d-flex justify-content-end align-items-center">
+                <Button className="font-weight-bold button-job-details-card-apply">Apply Now</Button>
+              </div>
+            </Card.Header>
+            <Card.Body className="m-0 px-5 py-0">
+              <div className="job-details-description">
+                <ReactMarkdown source={description} />
+            </div>
+            </Card.Body>
+        </Card>
         <div>
           {type} / {location}
         </div>
@@ -60,9 +80,7 @@ export default function JobDetails({ details, onResetView }) {
           <div className="left-section">
             <div className="job-details-title">{title}</div>
             <hr/>
-            <div className="job-details-description">
-              <ReactMarkdown source={description} />
-            </div>
+
           </div>
           <div className="right-section">
             <div className="company-details">
