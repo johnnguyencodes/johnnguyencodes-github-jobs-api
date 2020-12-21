@@ -4,7 +4,7 @@
   font-family: "Montserrat", Arial, sans-serif;
 }
 
-#root {
+#root, html {
   background-color: #f5f6f8;
 }
 
@@ -135,6 +135,10 @@ i {
 
 /* job-details styling */
 
+.job-details-container {
+  height: calc(100% + 120px);
+}
+
 .job-details-container > header {
   position: absolute;
   top: -60px;
@@ -184,6 +188,13 @@ i {
 .job-details-description > a {
   color: #5865E0!important;
   font-weight: bold;
+}
+
+.job-details-how-to-apply-card {
+  top: 120px;
+  height: 100%;
+  border-radius: 10px!important;
+  background-image: url("https://i.imgur.com/FbQPtRN.jpg");
 }
 
 .details-header {

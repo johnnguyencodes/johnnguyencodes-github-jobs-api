@@ -50,13 +50,13 @@ export default function JobDetails({ details, onResetView }) {
             </div>
           </div>
         </header>
-        <Card className="job-details-card d-flex justify-content-center border-0 pt-3">
+        <Card className="job-details-card d-flex justify-content-center border-0 pt-3 mb-4">
             <Card.Header className="job-details-card-header bg-white d-flex justify-content-between align-items-between border-0 m-0 p-5">
               <div className="col-8">
-                <Card.Subtitle className="job-details-date text-muted font-weight-bold">
+                <Card.Subtitle className="job-details-date text-muted font-weight-bold mb-1">
                    {moment(new Date(created_at)).fromNow()} &#8226; {type}
                 </Card.Subtitle>
-                <Card.Title className="job-details-card-title">
+                <Card.Title className="job-details-card-title my-4">
                   <h1 className="font-weight-bold">{title}</h1>
                 </Card.Title>
                 <Card.Subtitle className="job-details-card-location font-weight-bold purple">
@@ -72,31 +72,13 @@ export default function JobDetails({ details, onResetView }) {
                 <ReactMarkdown source={description} />
             </div>
             </Card.Body>
-        </Card>
-        <div>
-          {type} / {location}
-        </div>
-        <div className="main-section">
-          <div className="left-section">
-            <div className="job-details-title">{title}</div>
-            <hr/>
-
-          </div>
-          <div className="right-section">
-            <div className="company-details">
-              <h3>About company</h3>
-              <img src={company_logo} alt={company} className="job-details-logo" />
-              <div className="job-details-company-name">{company}</div>
-              <a href={company_url} className="job-details-company-url">
-                {company_url}
-              </a>
-            </div>
-            <div className="job-details-how-to-apply">
-              <h3>How to apply</h3>
-              <ReactMarkdown source={how_to_apply} />
-            </div>
-          </div>
-        </div>
+          </Card>
+          <Card className="job-details-how-to-apply-card col-12 border-0 mb-4">
+            <Card.Body>
+              <h3 className="font-weight-bold text-white">How to apply</h3>
+              <ReactMarkdown className="mt-4 text-white" source={how_to_apply} />
+            </Card.Body>
+          </Card>
     </div>
   );
 };
