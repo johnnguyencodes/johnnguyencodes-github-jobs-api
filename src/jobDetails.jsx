@@ -2,8 +2,6 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 export default function JobDetails({ details, onResetView }) {
-  console.log(details);
-
   const {
     type,
     title,

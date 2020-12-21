@@ -27,6 +27,13 @@ export default function useFetchJobs(params, page) {
   const [state, dispatch] = useReducer(reducer, { jobs: [], loading: true, error: false})
 
   useEffect(() => {
+
+    if ('geolocation' in navigator) {
+      console.log("geolocation available");
+    } else {
+      console.log("geolocation not available");
+    }
+
     const cancelToken = axios.CancelToken.source();
     dispatch({ type: ACTIONS.MAKE_REQUEST })
     axios.get(BASE_URL, {
