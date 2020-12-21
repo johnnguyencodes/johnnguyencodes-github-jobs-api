@@ -17,6 +17,10 @@ export default function SearchForm({ params, onParamChange }) {
           <Form.Group as={Col} xs="auto" className="ml-2">
             <Form.Check onChange={onParamChange} value={params.full_time} name="full_time" id="full-time" label="Only Full Time" type="checkbox" className="mb-2" />
           </Form.Group>
+          <Form.Group as={Col} xs="auto" className="ml-2">
+            <Form.Check onChange={onParamChange} value={params.geolocation} name="geolocation" id="geolocation" label="Use geolocation" type="checkbox" className="mb-2" />
+            { params.geolocation ? `Location: ${params.location}` : '' }
+            </Form.Group>
         </Form.Row>
       </Form>
     </div>

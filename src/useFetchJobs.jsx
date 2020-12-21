@@ -27,14 +27,12 @@ export default function useFetchJobs(params, page) {
   const [state, dispatch] = useReducer(reducer, { jobs: [], loading: true, error: false})
 
   useEffect(() => {
-
     navigator.geolocation.getCurrentPosition((position) => {
       params.lat = position.coords.latitude;
       params.long = position.coords.longitude;
     }, (error) => {
       console.error(`Error Code = ${error.code} - ${error.message}.`);
     })
-
     const cancelToken = axios.CancelToken.source();
     dispatch({ type: ACTIONS.MAKE_REQUEST })
     axios.get(BASE_URL, {
