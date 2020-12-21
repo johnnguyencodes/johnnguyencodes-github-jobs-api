@@ -1,5 +1,122 @@
+/* https://imgur.com/a/49ZVXZT */
+
+* {
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+#root, html {
+  background-color: #f5f6f8;
+}
+
+.container {
+  position: relative;
+}
+
+.purple {
+  color: #5865E0;
+}
+
+.btn-primary {
+  background-color: #5865E0!important;
+  outline: none;
+}
+
+.hide {
+  display: none;
+}
+
+/* header styling */
+.app-logo, .app-logo:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.header {
+  background-image: url("https://i.imgur.com/FbQPtRN.jpg");
+  width: 100%;
+  height: 150px;
+  border-bottom-left-radius: 100px;
+}
+
+/* home view styling */
+
+.company-logo {
+  object-fit: contain
+}
+
+form {
+  position: absolute;
+  bottom: 30px;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 5px rgba(33,33,33,.2);
+  box-shadow: 0 0 5px rgba(33,33,33,.2);
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+form:hover {
+      -webkit-transform: translateY(-.25rem);
+      -ms-transform: translateY(-.25rem);
+          transform: translateY(-.25rem);
+  -webkit-box-shadow: 0 0 15px rgba(33,33,33,.2);
+          box-shadow: 0 0 15px rgba(33,33,33,.2);
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+
+i {
+  position: absolute;
+}
+
+.form-check-label {
+  font-weight: bold;
+}
+
+.input:focus, .btn:focus {
+    outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* job-card styling */
+
+.job-badge {
+  background-color: #5865E0;
+  width: 50px;
+  height: 50px;
+}
+
+.company-logo {
+  top: -24px;
+  position: absolute;
+}
+
 .job-card {
   flex-basis: calc(33% - 30px);
+  border-radius: 10px!important;
+    -webkit-box-shadow: 0 0 5px rgba(33,33,33,.2);
+          box-shadow: 0 0 5px rgba(33,33,33,.2);
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.job-card:hover {
+    -webkit-transform: translateY(-.5rem);
+      -ms-transform: translateY(-.5rem);
+          transform: translateY(-.5rem);
+  -webkit-box-shadow: 0 0 15px rgba(33,33,33,.2);
+          box-shadow: 0 0 15px rgba(33,33,33,.2);
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+
+.job-card-header {
+  height: 32px;
 }
 
 .job-card-location {
@@ -7,8 +124,8 @@
 }
 
 .job-card-body {
-  min-height: 175px;
-  max-height: 175px;
+  min-height: 250px;
+  max-height: 250px;
   overflow-y: auto;
 }
 
@@ -16,9 +133,93 @@
   cursor: pointer;
 }
 
-.hide {
-  display: none;
+/* job-details styling */
+
+.job-details-container {
+  height: calc(100% + 120px);
 }
+
+.job-details-container > header {
+  position: absolute;
+  top: -60px;
+  z-index: 2;
+  width: calc(100% - 30px)!important;
+  border-radius: 10px;
+}
+
+.details-company-logo {
+  object-fit: contain
+}
+
+.details-badge {
+    background-color: #5865E0;
+  width: 150px;
+  height: 150px;
+  font-size: 90px;
+}
+
+.button-job-details-card-apply {
+  width: 140px;
+}
+
+.button-company-url {
+  background-color: #efeef8!important;
+  outline: #efeef8!important;
+  opacity: .6;
+    -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  width: 140px;
+}
+
+.button-company-url:hover {
+  color: #5865E0!important;
+  opacity: 1;
+    -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.job-details-card {
+  top: 120px;
+  border-radius: 10px!important;
+}
+
+.job-details-description > a {
+  color: #5865E0!important;
+  font-weight: bold;
+}
+
+.job-details-how-to-apply-card {
+  top: 120px;
+  height: 100%;
+  border-radius: 10px!important;
+  background-image: url("https://i.imgur.com/FbQPtRN.jpg");
+}
+
+.details-header {
+  border-radius: 10px;
+  height: 150px;
+}
+
+a {
+  color: #5865E0;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #5865E0;
+}
+
+/* footer styling */
+
+.footer {
+  width: 100%;
+  top: 120px;
+  border-radius: 10px;
+}
+
+/* scrollbar styling */
 
 * {
   scrollbar-width: thin;
@@ -35,7 +236,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: grey;
+  background-color: #5865E0;
   border-radius: 20px;
   border: 3px solid #f8f9fa;
 }
