@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useFetchJobs from './useFetchJobs';
 import { Container, Button } from 'react-bootstrap';
 import Job from './job';
@@ -13,19 +13,6 @@ export default function App() {
   const { jobs, loading, error } = useFetchJobs(params, page);
   const [view, setView] = useState('home');
   const [jobId, setJobId] = useState(-1);
-  const [geolocation, setGeolocation] = useState(false);
-
-  let latitude;
-  let longitude;
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(position => {
-      latitude = position.coords.latitude;
-      longitude = position.coords.longitude;
-    }, error => {
-      console.error(`Error Code = ${error.code} - ${error.message}.`);
-    });
-  }, []);
 
   const handleResetView = () => {
     setView('home');
@@ -48,27 +35,18 @@ export default function App() {
 
   const handleParamChange = event => {
     const param = event.target.name;
-    const value = event.target.value;
-    setPage(1);
-    if (geolocation === true) {
-      params.lat = latitude;
-      params.long = longitude;
-      params.location = '';
-    } else {
-      params.lat = '';
-      params.long = '';
+    let value = event.target.value;
+    if (param === 'full_time') {
+      if ((!value)) {
+        value = true;
+      } else {
+        value = '';
+      }
     }
+    setPage(1);
     setParams(prevParams => {
       return { ...prevParams, [param]: value };
     });
-  };
-
-  const handleGeolocationChange = event => {
-    if (geolocation === false) {
-      setGeolocation(true);
-    } else {
-      setGeolocation(false);
-    }
   };
 
   let buttonClassName;
@@ -101,7 +79,6 @@ export default function App() {
           <SearchForm
             params={params}
             onParamChange={handleParamChange}
-            onGeolocationChange={handleGeolocationChange}
           />
           {loading && <h1 className="d-flex justify-content-center">Loading...</h1>}
           {error && <h1 className="d-flex justify-content-center">Error. Try Refreshing.</h1>}

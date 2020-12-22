@@ -31,10 +31,6 @@ export default function useFetchJobs(params, page) {
 
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
-    if (page > 1) {
-      params.lat = '';
-      params.long = '';
-    }
     dispatch({ type: ACTIONS.MAKE_REQUEST });
     axios.get(BASE_URL, {
       headers: {
