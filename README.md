@@ -13,18 +13,18 @@
 ## Completed Features
   1. User can view all jobs currently live via the GitHub Jobs API
   2. User can search for jobs based on location, title, company, skill, and can filter for full-time positions.
-  3. User can search for jobs based on user's geolocation.
-  4. User can view details of a specific job.
+  3. User can view details of a specific job.
 
 ## Features Being Implemented
   1. User can load more jobs onto the page, however the current implementation refreshes the page and resets the Window.scrollY position to the top of the page.  Infinite scroll would have presented a cleaner user interface.
 
 ## Features To Be Implemented in the Future
-  1. The ability to toggle between light and dark mode.
-  2. Mobile-responsive design.
-  3. Unit testing.
-  4. Implementing a CORS express middleware.  
-  5. User can save a job post by utilizing localStorage (Stretch Feature)
+  1. User can search for jobs based on user's geolocation.
+  2. The ability to toggle between light and dark mode.
+  3. Mobile-responsive design.
+  4. Unit testing.
+  5. Implementing a CORS express middleware.  
+  6. User can save a job post by utilizing localStorage (Stretch Feature)
 
 ## Live Site
 * The live version can be viewed [here](https:johnnguyencodes-github-jobs-api.netlify.com).
