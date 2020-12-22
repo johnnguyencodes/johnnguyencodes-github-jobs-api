@@ -1,17 +1,52 @@
-# full-stack-project
+# GitHub Jobs API coding challenge for Egen Solutions
+> * Maintained by: `John Nguyen`
 
-Starter files and guidance for building a full stack web application in JavaScript.
+* Used React.js to create all HTML elements (virtual DOM) to dynamically display data received from the GitHub's Jobs API by sending GET requests with Axios
 
-The guides cover the following topics:
+* Managed state and utilized lifecycle features with React Hooks
 
-1. [Getting Started](guides/GETTING_STARTED.md)
-1. [Team Meetings](guides/TEAM_MEETINGS.md)
-1. [Full Stack Development Workflow](guides/FULL_STACK_WORKFLOW.md)
-1. [Deployment to EC2 on AWS](guides/DEPLOYMENT.md)
-1. [Presentations](guides/PRESENTING.md)
+* Created user interface with CSS3, Bootstrap, and React-Strap
 
-Project Managers (LearningFuze staff) and Developers (LearningFuze students) will be using these guides when delivering project features and conducting team meetings.
 
-Congratulations on making it this far! There is work left to be done, but these guides aim to start you off on solid footing and help you maintain good velocity throughout the project.
+## Completed Features
+  1. User can view all jobs currently live via the GitHub Jobs API
+  2. User can search for jobs based on location, title, company, skill, and can filter for full-time positions.
+  3. User can search for jobs based on user's geolocation.
+  4. User can view details of a specific job.
 
-Good luck!
+## Features Being Implemented
+  1. User can load more jobs onto the page, however the current implementation refreshes the page and resets the Window.scrollY position to the top of the page.  Infinite scroll would have presented a cleaner user interface.
+
+## Features To Be Implemented in the Future
+  1. The ability to toggle between light and dark mode.
+  2. Mobile-responsive design.
+  3. Unit testing.
+
+## Live Site
+* The live version can be viewed [here](https:johnnguyencodes-github-jobs-api.netlify.com).
+
+## System Requirements
+* Ubuntu Linux 18.04 LTS
+* Node.js 10
+* PostgreSQL 10
+* pgweb
+* NPM 6
+
+
+## Set Up Environment
+1. Clone the repo
+
+```
+git clone https://github.com/johnnguyencodes-githubs-jobs-api
+
+cd johnnguyencodes-github-jobs-api
+```
+2. Install all dependencies with NPM
+```
+npm install
+```
+
+3. Start the project.  Once started, you can view the application by opening http://localhost:3000 in your browser.
+```
+npm run dev
+```

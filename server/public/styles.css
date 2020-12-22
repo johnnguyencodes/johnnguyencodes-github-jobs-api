@@ -49,22 +49,6 @@ form {
   bottom: 30px;
   background-color: white;
   border-radius: 5px;
-  -webkit-box-shadow: 0 0 5px rgba(33,33,33,.2);
-  box-shadow: 0 0 5px rgba(33,33,33,.2);
-  -webkit-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-
-form:hover {
-      -webkit-transform: translateY(-.25rem);
-      -ms-transform: translateY(-.25rem);
-          transform: translateY(-.25rem);
-  -webkit-box-shadow: 0 0 15px rgba(33,33,33,.2);
-          box-shadow: 0 0 15px rgba(33,33,33,.2);
-  -webkit-transition: all .25s ease-in-out;
-  -o-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out;
 }
 
 i {
@@ -129,7 +113,7 @@ i {
   overflow-y: auto;
 }
 
-.job-card:hover {
+.job-card:hover, label:hover, #full_time:hover, #geolocation:hover  {
   cursor: pointer;
 }
 

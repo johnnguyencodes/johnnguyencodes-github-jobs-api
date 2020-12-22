@@ -24,7 +24,7 @@ export default function App() {
     window.scrollTo(0, 0);
   };
 
-  const handleLoadMoreJobs = () => {
+  const handleLoadMoreJobs = params => {
     setPage(page + 1);
   };
 
@@ -36,11 +36,7 @@ export default function App() {
   const handleParamChange = event => {
     const param = event.target.name;
     const value = event.target.value;
-    if (document.getElementById('geolocation').checked === false) {
-      params.lat = '';
-      params.long = '';
-    }
-    if (params.lat) {
+    if (document.getElementById('geolocation').checked === true) {
       params.location = '';
     }
     setPage(1);
@@ -48,6 +44,28 @@ export default function App() {
       return { ...prevParams, [param]: value };
     });
   };
+
+  let buttonClassName;
+
+  if (loading) {
+    buttonClassName = 'disabled';
+  } else {
+    buttonClassName = 'text-white font-weight-bold mb-4 btn-outline-none';
+  }
+
+  if (jobs.length % 50) {
+    buttonClassName = 'hide';
+  } else {
+    buttonClassName = 'text-white font-weight-bold mb-4 btn-outline-none';
+  }
+
+  // let noJobsFoundClassName;
+
+  // if (!(loading) && !(jobs)) {
+  //   noJobsFoundClassName=""
+  // } else {
+  //   noJobsFoundClassName="hide"
+  // }
 
   return (
     <Container className="col-12 m-0 p-0">
@@ -58,16 +76,17 @@ export default function App() {
             params={params}
             onParamChange={handleParamChange}
           />
-          {loading && <h1>Loading...</h1>}
-          {error && <h1>Error. Try Refreshing.</h1>}
+          {loading && <h1 className="d-flex justify-content-center">Loading...</h1>}
+          {error && <h1 className="d-flex justify-content-center">Error. Try Refreshing.</h1>}
           <div className="jobs-container col-12 d-flex flex-wrap justify-content-center">
             {jobs.map(job => {
               return <Job key={job.id} job={job} onItemClick={handleItemClick} />;
             })}
+            {!loading && !jobs && <h1 className="d-flex justify-content-center">No jobs found, please try a different search.</h1>}
           </div>
           {jobs.length > 0 && (
             <div className="load-more d-flex justify-content-center">
-              <Button onClick={loading ? null : handleLoadMoreJobs} disabled={loading} className={`${loading ? 'disabled' : 'text-white font-weight-bold mb-4 btn-outline-none'}`}>
+              <Button onClick={loading ? null : handleLoadMoreJobs} disabled={loading} className={buttonClassName}>
                 Load More Jobs
               </Button>
             </div>
