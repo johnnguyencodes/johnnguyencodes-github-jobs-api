@@ -8,7 +8,7 @@
 * Created user interface with CSS3, Bootstrap, and React-Strap
 
 ## Issues
-  1. The app utilizes https://cors-anywhere.herokuapp.com to enable cross-origin requests, which can cause noticeable latency when submitting a GET request to the GitHub Jobs API.  Configuring a CORS express middleware that works with the current axios.get implementation would solve this issue.  
+  1. The app utilizes the https://cors-anywhere.herokuapp.com to enable cross-origin requests, which can cause noticeable latency when sending a GET request to the GitHub Jobs API (and can even break the app when it does not work properly).  Configuring a CORS express middleware that works with the current axios.get implementation would solve this issue.  
 
 ## Completed Features
   1. User can view all jobs currently live via the GitHub Jobs API
