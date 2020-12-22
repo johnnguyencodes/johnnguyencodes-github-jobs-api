@@ -8,7 +8,7 @@
 * Created user interface with CSS3, Bootstrap, and React-Strap
 
 ## Issues
-  1. The app utilizes the https://cors-anywhere.herokuapp.com to enable cross-origin requests, which can cause noticeable latency when sending a GET request to the GitHub Jobs API (and can even break the app when it does not work properly).  Configuring a CORS express middleware that works with the current axios.get implementation would solve this issue.  
+  1. The app utilizes the https://cors-anywhere.herokuapp.com to enable cross-origin requests, which can cause noticeable latency when sending a GET request to the GitHub Jobs API (and can even break the app when it does not work properly).  Configuring a CORS express middleware that works with the current axios.get implementation would solve this issue.
 
 ## Completed Features
   1. User can view all jobs currently live via the GitHub Jobs API
@@ -23,7 +23,7 @@
   1. The ability to toggle between light and dark mode.
   2. Mobile-responsive design.
   3. Unit testing.
-  4. Implementing a CORS express middleware.  
+  4. Implementing a CORS express middleware.
   5. User can save a job post by utilizing localStorage (Stretch Feature)
 
 ## Live Site
@@ -54,3 +54,13 @@ npm install
 ```
 npm run dev
 ```
+
+### Screenshots
+
+* List of Jobs
+
+<img src="https://user-images.githubusercontent.com/61361957/102930554-82a7b200-4451-11eb-9201-30d20ba6bd89.png" alt="list of jobs">
+
+* Job Details
+
+<img src="https://user-images.githubusercontent.com/61361957/102930565-86d3cf80-4451-11eb-9fc4-6f2b8694a0cb.png" alt="job details">
