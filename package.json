@@ -1,45 +1,121 @@
 {
-  "name": "johnnguyencodes-github-jobs-api",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.6.0",
-    "axios": "^0.21.0",
-    "cors": "^2.8.5",
-    "moment": "^2.29.1",
-    "react": "^17.0.1",
-    "react-bootstrap": "^1.4.0",
-    "react-dom": "^17.0.1",
-    "react-markdown": "^5.0.3",
-    "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+  "name": "full-stack-project",
+  "version": "1.0.0",
+  "description": "A Full Stack Node.js &amp; React app.",
+  "main": "server/index.js",
   "proxy": "https://jobs.github.com",
-  "homepage": "https://johnnguyencodes-github-jobs-api.netlify.app/build/",
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "scripts": {
+    "dev": "npm-run-all --silent --parallel dev:*",
+    "dev:client": "webpack-dev-server",
+    "dev:server": "nodemon server/index.js",
+    "db:import": "source .env && psql $DATABASE_URL < database/dump.sql",
+    "db:export": "source .env && pg_dump -c --if-exists -O $DATABASE_URL > database/dump.sql",
+    "build": "webpack --mode=production",
+    "start": "NODE_ENV=production node server/index.js"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "server/"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+    "ignore": [
+      "server/public/",
+      "server/sessions/"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "eslintIgnore": [
+    "server/public/main.js"
+  ],
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+      "plugin:react/recommended",
+      "eslint:recommended",
+      "standard"
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "rules": {
+      "semi": [
+        "error",
+        "always"
+      ],
+      "padded-blocks": 0,
+      "arrow-parens": [
+        "error",
+        "as-needed"
+      ],
+      "curly": [
+        "error",
+        "multi-line"
+      ],
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ],
+      "space-before-function-paren": [
+        "error",
+        {
+          "anonymous": "always",
+          "named": "never",
+          "asyncArrow": "always"
+        }
+      ],
+      "react/prop-types": 0
+    }
+  },
+  "dependencies": {
+    "axios": "0.21.0",
+    "dotenv": "8.2.0",
+    "express-session": "1.17.1",
+    "moment": "2.29.1",
+    "nodemon": "2.0.6",
+    "pg": "8.5.1",
+    "react": "16.12.0",
+    "react-bootstrap": "1.4.0",
+    "react-dom": "16.12.0",
+    "react-markdown": "5.0.3",
+    "session-file-store": "1.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.8.0",
+    "@babel/plugin-transform-react-jsx": "7.8.0",
+    "babel-eslint": "10.0.3",
+    "babel-loader": "8.0.6",
+    "eslint": "6.8.0",
+    "eslint-config-standard": "14.1.0",
+    "eslint-plugin-import": "2.20.0",
+    "eslint-plugin-node": "11.0.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-react": "7.17.0",
+    "eslint-plugin-standard": "4.0.1",
+    "husky": "4.0.7",
+    "lint-staged": "9.5.0",
+    "npm-run-all": "4.1.5",
+    "webpack": "4.41.5",
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "3.10.1"
   }
 }
