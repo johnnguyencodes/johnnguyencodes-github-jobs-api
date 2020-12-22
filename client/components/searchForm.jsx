@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Col } from 'react-bootstrap';
 
-export default function SearchForm({ params, onParamChange }) {
+export default function SearchForm({ params, onParamChange, onGeolocationChange }) {
   return (
     <div>
       <Form className="mb-4 col-10 offset-1">
@@ -24,10 +24,6 @@ export default function SearchForm({ params, onParamChange }) {
           </Form.Group>
           <Form.Group as={Col} xs="auto" className="checkbox my-0 mr-0 ml-2 p-2">
             <Form.Check onChange={onParamChange} value={params.full_time} name="full_time" id="full_time" className="checkbox font-weight-bold mb-2" label="Only Full Time" type="checkbox" />
-          </Form.Group>
-          <Form.Group as={Col} xs="auto" className="checkbox m-0 ml-2 p-2">
-            <Form.Check onChange={onParamChange} value={params.geolocation} name="geolocation" id="geolocation" className="checkbox font-weight-bold mb-2" label="Use Geolocation" type="checkbox" />
-            { params.geolocation ? `Location: ${params.location}` : '' }
           </Form.Group>
         </Form.Row>
       </Form>

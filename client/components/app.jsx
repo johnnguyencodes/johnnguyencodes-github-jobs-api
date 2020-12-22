@@ -35,9 +35,13 @@ export default function App() {
 
   const handleParamChange = event => {
     const param = event.target.name;
-    const value = event.target.value;
-    if (document.getElementById('geolocation').checked === true) {
-      params.location = '';
+    let value = event.target.value;
+    if (param === 'full_time') {
+      if ((!value)) {
+        value = true;
+      } else {
+        value = '';
+      }
     }
     setPage(1);
     setParams(prevParams => {
@@ -59,13 +63,13 @@ export default function App() {
     buttonClassName = 'text-white font-weight-bold mb-4 btn-outline-none';
   }
 
-  // let noJobsFoundClassName;
+  let noJobsClassName;
 
-  // if (!(loading) && !(jobs)) {
-  //   noJobsFoundClassName=""
-  // } else {
-  //   noJobsFoundClassName="hide"
-  // }
+  if (!loading && !jobs.length && !error) {
+    noJobsClassName = 'd-flex justify-content-center';
+  } else {
+    noJobsClassName = 'hide';
+  }
 
   return (
     <Container className="col-12 m-0 p-0">
@@ -82,7 +86,7 @@ export default function App() {
             {jobs.map(job => {
               return <Job key={job.id} job={job} onItemClick={handleItemClick} />;
             })}
-            {!loading && !jobs && <h1 className="d-flex justify-content-center">No jobs found, please try a different search.</h1>}
+            <h1 className={noJobsClassName}>No jobs found, please try a different search.</h1>
           </div>
           {jobs.length > 0 && (
             <div className="load-more d-flex justify-content-center">

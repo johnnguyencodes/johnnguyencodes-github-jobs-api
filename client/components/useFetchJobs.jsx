@@ -31,22 +31,6 @@ export default function useFetchJobs(params, page) {
 
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
-    navigator.geolocation.getCurrentPosition(position => {
-      if (document.getElementById('geolocation').checked === false) {
-        params.lat = position.coords.latitude;
-        params.long = position.coords.longitude;
-        params.location = '';
-      } else {
-        params.lat = '';
-        params.long = '';
-      }
-    }, error => {
-      console.error(`Error Code = ${error.code} - ${error.message}.`);
-    });
-    if (page > 1) {
-      params.lat = '';
-      params.long = '';
-    }
     dispatch({ type: ACTIONS.MAKE_REQUEST });
     axios.get(BASE_URL, {
       headers: {
