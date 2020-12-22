@@ -23,7 +23,8 @@
   1. The ability to toggle between light and dark mode.
   2. Mobile-responsive design.
   3. Unit testing.
-  4. User can save a job post by utilizing localStorage (Stretch Feature)
+  4. Implementing a CORS express middleware.  
+  5. User can save a job post by utilizing localStorage (Stretch Feature)
 
 ## Live Site
 * The live version can be viewed [here](https:johnnguyencodes-github-jobs-api.netlify.com).
