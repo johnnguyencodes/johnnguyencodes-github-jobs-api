@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useFetchJobs from './useFetchJobs';
 import { Container, Button } from 'react-bootstrap';
 import Job from './job';
@@ -13,6 +13,19 @@ export default function App() {
   const { jobs, loading, error } = useFetchJobs(params, page);
   const [view, setView] = useState('home');
   const [jobId, setJobId] = useState(-1);
+  const [geolocation, setGeolocation] = useState(false);
+
+  let latitude;
+  let longitude;
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(position => {
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+    }, error => {
+      console.error(`Error Code = ${error.code} - ${error.message}.`);
+    });
+  }, []);
 
   const handleResetView = () => {
     setView('home');
@@ -36,13 +49,26 @@ export default function App() {
   const handleParamChange = event => {
     const param = event.target.name;
     const value = event.target.value;
-    if (document.getElementById('geolocation').checked === true) {
-      params.location = '';
-    }
     setPage(1);
+    if (geolocation === true) {
+      params.lat = latitude;
+      params.long = longitude;
+      params.location = '';
+    } else {
+      params.lat = '';
+      params.long = '';
+    }
     setParams(prevParams => {
       return { ...prevParams, [param]: value };
     });
+  };
+
+  const handleGeolocationChange = event => {
+    if (geolocation === false) {
+      setGeolocation(true);
+    } else {
+      setGeolocation(false);
+    }
   };
 
   let buttonClassName;
@@ -59,13 +85,13 @@ export default function App() {
     buttonClassName = 'text-white font-weight-bold mb-4 btn-outline-none';
   }
 
-  // let noJobsFoundClassName;
+  let noJobsClassName;
 
-  // if (!(loading) && !(jobs)) {
-  //   noJobsFoundClassName=""
-  // } else {
-  //   noJobsFoundClassName="hide"
-  // }
+  if (!loading && !jobs.length && !error) {
+    noJobsClassName = 'd-flex justify-content-center';
+  } else {
+    noJobsClassName = 'hide';
+  }
 
   return (
     <Container className="col-12 m-0 p-0">
@@ -75,6 +101,7 @@ export default function App() {
           <SearchForm
             params={params}
             onParamChange={handleParamChange}
+            onGeolocationChange={handleGeolocationChange}
           />
           {loading && <h1 className="d-flex justify-content-center">Loading...</h1>}
           {error && <h1 className="d-flex justify-content-center">Error. Try Refreshing.</h1>}
@@ -82,7 +109,7 @@ export default function App() {
             {jobs.map(job => {
               return <Job key={job.id} job={job} onItemClick={handleItemClick} />;
             })}
-            {!loading && !jobs && <h1 className="d-flex justify-content-center">No jobs found, please try a different search.</h1>}
+            <h1 className={noJobsClassName}>No jobs found, please try a different search.</h1>
           </div>
           {jobs.length > 0 && (
             <div className="load-more d-flex justify-content-center">
