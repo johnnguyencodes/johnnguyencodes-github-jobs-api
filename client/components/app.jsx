@@ -93,7 +93,7 @@ export default function App() {
         onResetView={handleResetView}
         onColorSchemeClick={handleColorSchemeClick}
       />
-      <div className="main-content col-10 offset-1">
+      <div className="main-content col-12 col-xl-10 offset-xl-1">
         <div className={`${view === 'details' && 'hide'}`}>
           <SearchForm params={params} onParamChange={handleParamChange} />
           {loading && (
