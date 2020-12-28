@@ -26,7 +26,7 @@ export default function JobDetails({ details, onResetView }) {
 
   return (
     <>
-      <div className="job-details-container col-10 offset-1">
+      <div className="job-details-container col-12 col-xl-10 offset-xl-1">
         <header className="m-0 p-0 job-card-background row col-12">
           {company_logo
             ? <img className="d-none d-md-block details-company-logo"
