@@ -7,8 +7,8 @@ const ACTIONS = {
   GET_DATA: 'get-data',
   ERROR: 'error'
 };
-
-const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json';
+const proxy = 'https://cors-anywhere.herokuapp.com/';
+const BASE_URL = `${proxy}https://jobs.github.com/positions.json`;
 
 let totalJobs = [];
 let flatTotalJobs = [];
@@ -35,26 +35,28 @@ export default function useFetchJobs(params, page) {
     axios.get(BASE_URL, {
       headers: {
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'X-Requested-With'
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+        'Access-Control-Allow-Methods': 'GET'
       },
       cancelToken: cancelToken.token,
       params: { markdown: true, page: page, ...params }
-    }).then(res => {
-      if (page === 1) {
-        totalJobs = [];
-        flatTotalJobs = [];
-      }
-      const sortedJobs = res.data.sort(
-        (a, b) =>
-          moment(new Date(b.created_at)) - moment(new Date(a.created_at))
-      );
-      totalJobs.push(sortedJobs);
-      flatTotalJobs = totalJobs.flat();
-      dispatch({ type: ACTIONS.GET_DATA, payload: { jobs: flatTotalJobs } });
-    }).catch(error => {
-      if (axios.isCancel(error)) return;
-      dispatch({ type: ACTIONS.ERROR, payload: { error: error } });
-    });
+    })
+      .then(res => {
+        if (page === 1) {
+          totalJobs = [];
+          flatTotalJobs = [];
+        }
+        const sortedJobs = res.data.sort(
+          (a, b) =>
+            moment(new Date(b.created_at)) - moment(new Date(a.created_at))
+        );
+        totalJobs.push(sortedJobs);
+        flatTotalJobs = totalJobs.flat();
+        dispatch({ type: ACTIONS.GET_DATA, payload: { jobs: flatTotalJobs } });
+      }).catch(error => {
+        if (axios.isCancel(error)) return;
+        dispatch({ type: ACTIONS.ERROR, payload: { error: error } });
+      });
 
     return () => {
       cancelToken.cancel();

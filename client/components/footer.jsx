@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 export default function Footer({ details }) {
   return (
-    <footer className="footer col-12 bg-white py-3">
+    <footer className="footer col-12 job-card-background py-3">
       <div className="col-10 offset-1 row d-flex align-items-center">
         <div className="col-8">
           <h3 className="font-weight-bold">

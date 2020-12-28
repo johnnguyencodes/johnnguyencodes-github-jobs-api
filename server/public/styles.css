@@ -1,11 +1,64 @@
-/* https://imgur.com/a/49ZVXZT */
+/* color-scheme styling */
+:root[color-mode="light"] {
+   --color-scheme-page-background: #F5F6F8;
+   --color-scheme-card-background: #FFFFFF;
+   --color-scheme-text-color: #6e8098;
+   --color-scheme-heading-color: black;
+    transition: all 0s;
+ }
+
+ :root[color-mode="light"] .light-hidden {
+   display: none;
+ }
+
+  :root[color-mode="dark"] {
+    --color-scheme-page-background:  #131822;
+    --color-scheme-card-background: #19212D;
+    --color-scheme-text-color: #9daec2;
+    --color-scheme-heading-color: white;
+    transition: all 0s;
+  }
+
+   :root[color-mode="dark"] .dark-hidden {
+   display: none;
+ }
+
+ .text-muted {
+   color: var(--color-scheme-text-color)!important;
+ }
+
+ .card-title, h1, .footer h3 {
+   color: var(--color-scheme-heading-color);
+ }
+
+ strong {
+    color: var(--color-scheme-heading-color);
+ }
+
+ .job-details-description {
+   color: var(--color-scheme-text-color);
+ }
+
+  .color-scheme-button {
+   width: 200px;
+ }
+
+ header i {
+   position: relative;
+ }
+
+
 
 * {
   font-family: "Montserrat", Arial, sans-serif;
 }
 
 #root, html {
-  background-color: #f5f6f8;
+  background-color: var(--color-scheme-page-background);
+}
+
+.job-card-background, .job-details-card-header, .input {
+  background-color: var(--color-scheme-card-background);
 }
 
 .container {
@@ -47,7 +100,7 @@
 form {
   position: absolute;
   bottom: 30px;
-  background-color: white;
+  background-color: var(--color-scheme-card-background);
   border-radius: 5px;
 }
 
@@ -203,6 +256,10 @@ a:hover {
   border-radius: 10px;
 }
 
+ .job-details-how-to-apply-card a {
+   color: white;
+ }
+
 /* scrollbar styling */
 
 * {
@@ -216,11 +273,11 @@ a:hover {
 }
 
 *::-webkit-scrollbar-track {
-  background: #f8f9fa;
+  background: var(--color-scheme-page-background);
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: #5865E0;
   border-radius: 20px;
-  border: 3px solid #f8f9fa;
+  border: 3px solid var(--color-scheme-page-background);
 }
