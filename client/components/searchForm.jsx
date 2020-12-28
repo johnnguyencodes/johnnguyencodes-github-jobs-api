@@ -4,7 +4,7 @@ import { Form, Col } from 'react-bootstrap';
 export default function SearchForm({ params, onParamChange, onGeolocationChange }) {
   return (
     <div>
-      <Form className="mb-4 col-10 offset-1">
+      <Form className="search-form-container mb-4 col-10 offset-1">
         <Form.Row className="align-items-end">
           <Form.Group as={Col} className="m-0 p-2">
             <div className="d-flex flex-column">

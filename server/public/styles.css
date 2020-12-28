@@ -35,9 +35,14 @@
     color: var(--color-scheme-heading-color);
  }
 
- .job-details-description {
+ .job-details-description, .search-form-container label {
    color: var(--color-scheme-text-color);
  }
+
+  .border-right {
+    border-right: 1px solid var(--color-scheme-text-color)!important;
+    border-radius: 0px;
+  }
 
   .color-scheme-button {
    width: 200px;
@@ -57,7 +62,7 @@
   background-color: var(--color-scheme-page-background);
 }
 
-.job-card-background, .job-details-card-header, .input {
+.job-card-background, .job-details-card-header, .input, .input:focus {
   background-color: var(--color-scheme-card-background);
 }
 
