@@ -287,7 +287,7 @@ a:hover {
   border: 3px solid var(--color-scheme-page-background);
 }
 
-/*  Small devices (landscape phones, 576px and up) */
+/*  Small devices */
 @media (min-width: 100px) {
   .job-card {
   flex-basis: calc(100% - 30px);
@@ -296,12 +296,52 @@ a:hover {
   .border-right {
     border-right: 0px!important;
   }
+
+  .job-details-container h1 {
+    font-size: 16px;
+  }
+
+  .job-details-container h2 {
+    font-size: 14px;
+  }
+
+  footer h3 {
+    font-size: 16px;
+  }
+
+  footer p {
+    font-size: 12px;
+  }
 }
 
 /*  Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .job-card {
   flex-basis: calc(49% - 30px);
+  }
+
+    .job-card {
+  flex-basis: calc(100% - 30px);
+  }
+
+  .border-right {
+    border-right: 0px!important;
+  }
+
+  .job-details-container h1 {
+    font-size: 20px;
+  }
+
+  .job-details-container h2 {
+    font-size: 18px;
+  }
+
+  footer h3 {
+    font-size: 12px;
+  }
+
+  footer p {
+    font-size: 10px;
   }
 }
 
@@ -315,7 +355,19 @@ a:hover {
     .job-card {
   flex-basis: calc(32% - 30px);
   }
+
+    .job-details-container h1 {
+    font-size: 24px;
+  }
 }
+
+  footer h3 {
+    font-size: 16px;
+  }
+
+  footer p {
+    font-size: 12px;
+  }
 
 /*  Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {

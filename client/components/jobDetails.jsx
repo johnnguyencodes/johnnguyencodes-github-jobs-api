@@ -26,10 +26,10 @@ export default function JobDetails({ details, onResetView }) {
 
   return (
     <>
-      <div className="job-details-container col-12 col-xl-10 offset-xl-1">
-        <header className="m-0 p-0 job-card-background row col-12">
+      <div className="job-details-container col-12">
+        <header className="m-0 p-0 job-card-background row col-12 d-flex justify-content-center">
           {company_logo
-            ? <img className="d-none d-md-block details-company-logo"
+            ? <img className="d-none d-lg-block details-company-logo"
               height="150" width="150" src={company_logo} alt={company} />
             : <h1 className="m-0 p-0"><span
               className="badge details-badge font-weight-bold
@@ -37,13 +37,13 @@ export default function JobDetails({ details, onResetView }) {
                       align-items-center m-0 p-0">
               {companyInitial || ''}
             </span></h1>}
-          <div className="details-header-body col-10 offset-1 d-flex
-            justify-content-between align-items-between p-0 m-0">
+          <div className="details-header-body col-12 col-lg-10 offset-lg-1 d-flex
+            justify-content-between align-items-between p-0 m-0 row">
             <div className="d-flex flex-column justify-content-center ml-5">
               <h1 className="font-weight-bold mb-3">{company}</h1>
               <p className="text-muted mt-3">{company_url}</p>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex justify-content-center align-items-center pr-5">
               <Button href={company_url} className="button-company-url purple font-weight-bold
                 btn-outline-none">
                 Company Site
@@ -52,8 +52,8 @@ export default function JobDetails({ details, onResetView }) {
           </div>
         </header>
         <Card className="job-details-card job-card-background d-flex justify-content-center border-0 pt-3 mb-4">
-          <Card.Header className="job-details-card-header d-flex justify-content-between align-items-between border-0 m-0 p-5">
-            <div className="col-8">
+          <Card.Header className="job-details-card-header d-flex justify-content-between align-items-between border-0 m-0 p-2 p-md-3 p-lg-4 p-xl-5">
+            <div className="col-8 p-0">
               <Card.Subtitle className="job-details-date text-muted font-weight-bold mb-1">
                 {moment(new Date(created_at)).fromNow()} &#8226; {type}
               </Card.Subtitle>
@@ -68,7 +68,7 @@ export default function JobDetails({ details, onResetView }) {
               <Button href={company_url} className="font-weight-bold button-job-details-card-apply">Apply Now</Button>
             </div>
           </Card.Header>
-          <Card.Body className="m-0 px-5 py-0">
+          <Card.Body className="m-0 px-2 px-md-3 px-lg-4 px-xl-5 py-0">
             <div className="job-details-description job-card-background">
               <ReactMarkdown source={description} />
             </div>
