@@ -41,7 +41,7 @@
 1. Clone the repo
 
 ```
-git clone https://github.com/johnnguyencodes-githubs-jobs-api
+git clone https://github.com/johnnguyencodes/johnnguyencodes-githubs-jobs-api
 
 cd johnnguyencodes-github-jobs-api
 ```
