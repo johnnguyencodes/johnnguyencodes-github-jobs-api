@@ -27,7 +27,7 @@ export default function JobDetails({ details, onResetView }) {
   return (
     <>
       <div className="job-details-container col-10 offset-1">
-        <header className="m-0 p-0 bg-white row col-12">
+        <header className="m-0 p-0 job-card-background row col-12">
           {company_logo
             ? <img className="d-none d-md-block details-company-logo"
               height="150" width="150" src={company_logo} alt={company} />
@@ -51,8 +51,8 @@ export default function JobDetails({ details, onResetView }) {
             </div>
           </div>
         </header>
-        <Card className="job-details-card d-flex justify-content-center border-0 pt-3 mb-4">
-          <Card.Header className="job-details-card-header bg-white d-flex justify-content-between align-items-between border-0 m-0 p-5">
+        <Card className="job-details-card job-card-background d-flex justify-content-center border-0 pt-3 mb-4">
+          <Card.Header className="job-details-card-header d-flex justify-content-between align-items-between border-0 m-0 p-5">
             <div className="col-8">
               <Card.Subtitle className="job-details-date text-muted font-weight-bold mb-1">
                 {moment(new Date(created_at)).fromNow()} &#8226; {type}
@@ -69,7 +69,7 @@ export default function JobDetails({ details, onResetView }) {
             </div>
           </Card.Header>
           <Card.Body className="m-0 px-5 py-0">
-            <div className="job-details-description">
+            <div className="job-details-description job-card-background">
               <ReactMarkdown source={description} />
             </div>
           </Card.Body>

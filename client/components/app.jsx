@@ -49,6 +49,22 @@ export default function App() {
     });
   };
 
+  const handleColorSchemeClick = event => {
+    if (event.currentTarget.classList.contains('light-hidden')) {
+      document.documentElement.setAttribute('color-mode', 'light');
+      return;
+    }
+    document.documentElement.setAttribute('color-mode', 'dark');
+  };
+
+  if (
+    localStorage.getItem('color-mode') === 'light' ||
+    (window.matchMedia('(prefers-color-scheme: light)').matches &&
+      !localStorage.getItem('color-mode'))
+  ) {
+    document.documentElement.setAttribute('color-mode', 'light');
+  }
+
   let buttonClassName;
 
   if (loading) {
@@ -73,24 +89,38 @@ export default function App() {
 
   return (
     <Container className="col-12 m-0 p-0">
-      <Header onResetView={handleResetView} />
+      <Header
+        onResetView={handleResetView}
+        onColorSchemeClick={handleColorSchemeClick}
+      />
       <div className="main-content col-10 offset-1">
         <div className={`${view === 'details' && 'hide'}`}>
-          <SearchForm
-            params={params}
-            onParamChange={handleParamChange}
-          />
-          {loading && <h1 className="d-flex justify-content-center">Loading...</h1>}
-          {error && <h1 className="d-flex justify-content-center">Error. Try Refreshing.</h1>}
+          <SearchForm params={params} onParamChange={handleParamChange} />
+          {loading && (
+            <h1 className="d-flex justify-content-center">Loading...</h1>
+          )}
+          {error && (
+            <h1 className="d-flex justify-content-center">
+              Error. Try Refreshing.
+            </h1>
+          )}
           <div className="jobs-container col-12 d-flex flex-wrap justify-content-center">
             {jobs.map(job => {
-              return <Job key={job.id} job={job} onItemClick={handleItemClick} />;
+              return (
+                <Job key={job.id} job={job} onItemClick={handleItemClick} />
+              );
             })}
-            <h1 className={noJobsClassName}>No jobs found, please try a different search.</h1>
+            <h1 className={noJobsClassName}>
+              No jobs found, please try a different search.
+            </h1>
           </div>
           {jobs.length > 0 && (
             <div className="load-more d-flex justify-content-center">
-              <Button onClick={loading ? null : handleLoadMoreJobs} disabled={loading} className={buttonClassName}>
+              <Button
+                onClick={loading ? null : handleLoadMoreJobs}
+                disabled={loading}
+                className={buttonClassName}
+              >
                 Load More Jobs
               </Button>
             </div>
